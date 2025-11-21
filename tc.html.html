@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang học tập lớp 12</title>
+
+<style>
+    
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #dbb240;
+        color: #333;
+        min-height: 100vh;
+    }
+
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background: #1e352d;
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header h1 { font-size: 28px; }
+    header button {
+        padding: 8px 18px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background: #f39c12;
+        color: #fff;
+        transition: 0.3s;
+    }
+    header button:hover { background: #e67e22; }
+
+    
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 30px 50px;
+        gap: 50px;
+    }
+
+    
+    .subjects {
+        flex: 1 1 600px; 
+        display: grid;
+        grid-template-columns: repeat(3, 150px);
+        gap: 25px 40px; 
+    }
+
+    .item {
+        width: 150px;
+        border: 5px solid #000;
+        border-radius: 15px;
+        background: #fff;
+        text-align: center;
+        transition: 0.3s;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        transition: 0.3s;
+    }
+    .item:hover img { transform: scale(1.1); }
+    .item:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.3); border-radius: 15px; }
+    .item a {
+        display: block;
+        padding: 10px 5px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #333;
+        transition: 0.3s;
+    }
+    .item a:hover { color: #f39c12; }
+
+    
+    .chat-container {
+        flex: 0 0 500px; 
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-container h2 { text-align: center; margin-bottom: 15px; }
+    #chatbox {
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 10px;
+        overflow-y: auto;
+        background: #f9f9f9;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        width:500px
+    }
+    #userInput, #apiKey {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button#sendBtn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background: #380127;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button#sendBtn:hover { background: #06425e; }
+    .user { color: rgb(0, 0, 0); margin: 5px 0; }
+    .bot { color: rgb(0, 0, 0); margin: 5px 0; }
+
+    
+    @media (max-width: 1200px) {
+        .container { flex-direction: column; align-items: center; }
+        .chat-container { margin-top: 30px; }
+    }
+    @media (max-width: 600px) {
+        .subjects { grid-template-columns: repeat(2, 150px); gap: 20px 20px; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <a style="text-decoration:none;color:white" href="tc.htm"><h1>INA</h1></a>
+    <a href="web.htm"><button>Bảng đen</button></a>
+</header>
+
+<div class="container">
+    
+    <div class="subjects">
+        <div class="item"><img src="toan1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/e518cff7-3b4c-9216-8ce0-248bbdc1be90">Toán 12 tập một</a></div>
+        <div class="item"><img src="van1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/8a688dab-bff8-a38f-a23d-dc10fd291f23">Văn 12 tập một</a></div>
+        <div class="item"><img src="anh1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/5766866a-4118-85c9-8e8f-58bb7efd4293">Tiếng Anh 12 tập một</a></div>
+        <div class="item"><img src="đia1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/6f2ff2f3-ed92-a693-b549-e31f7273ece9">Địa lí 12 tập một</a></div>
+        <div class="item"><img src="su2.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/4616af2a-d233-6344-b4fa-625cabb647de">Lịch sử 12 tập một</a></div>
+        <div class="item"><img src="vat1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/d6c08129-8a80-fcbb-8476-27361196fd23">Vật lí 12 tập một</a></div>
+        <div class="item"><img src="hoa1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/88634a31-e83b-9fa1-9c09-1f71bcb7d0e3">Hoá học 12 tập một</a></div>
+        <div class="item"><img src="sinh1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/4e2ca338-0ba1-f770-bd91-e2a77167c885">Sinh học 12 tập một</a></div>
+        <div class="item"><img src="ktpl1.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/a021817e-8854-1f65-ba12-89bc78e2012e">Kinh tế pháp luật 12</a></div>
+        <div class="item"><img src="cndt.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/d026c6bf-664f-1b03-9200-8d61a72ebcec">Công nghệ điện</a></div>
+        <div class="item"><img src="cnln.jpg"><a href="https://taphuan.nxbgd.vn/#/training-course-detail/40854dc9-361a-daf5-b252-391648a29d8b">Công nghệ lâm nghiệp</a></div>
+    </div>
+
+    
+    <div class="chat-container">
+        <h2>Giáo viên AI</h2>
+        <p><b>Nhập API Key CHAT GPT:</b></p>
+        <input id="apiKey" type="password" placeholder="nhập API key..." />
+        <div id="chatbox"></div>
+        <input id="userInput" type="text" placeholder="Câu hỏi?..." />
+        <button id="sendBtn" onclick="sendMessage()">Gửi</button>
+    </div>
+</div>
+
+<script>
+async function sendMessage() {
+    const apiKey = document.getElementById("apiKey").value;
+    const message = document.getElementById("userInput").value;
+    if (!apiKey) { alert("Bạn cần nhập API key!"); return; }
+    if (message.trim() === "") return;
+
+    const chat = document.getElementById("chatbox");
+    chat.innerHTML += <div class='user'><b></b> ${message}</div>;
+
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + apiKey
+            },
+            body: JSON.stringify({
+                model: "gpt-4.1-mini",
+                messages: [{ role: "user", content: message }]
+            })
+        });
+
+        const data = await response.json();
+        const reply = data.choices?.[0]?.message?.content || "Lỗi: Không nhận được phản hồi";
+        chat.innerHTML += <div class='bot'><b>Giáo viên AI:</b> ${reply}</div>;
+        chat.scrollTop = chat.scrollHeight;
+        document.getElementById("userInput").value = "";
+    } catch (err) {
+        chat.innerHTML += <div class='bot'><b>Bot:</b> Lỗi khi kết nối API</div>;
+    }
+}
+</script>
+
+</body>
+</html>
