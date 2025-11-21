@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <style>
+  * 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body 
+{
+  font-family: Arial, sans-serif;
+  
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #4d4c4c;
+  color: #333;
+  flex-direction: column;
+}
+
+.container 
+{
+  text-align: center;
+}
+
+.toolbar 
+{
+  position:absolute;
+  z-index:4;
+  display:flex;
+}
+
+.color-picker {
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  height:60px;
+  width:60px;
+  border: 3px solid white;
+  position:relative;
+  top:850px;
+  left:635px;
+  border-radius: 50px;
+  flex-direction: row;
+  margin:10px
+  }
+.color-red
+{
+    background-color: red;
+}
+.color-green{
+    background-color: green;
+}
+.color-blue{
+    background-color: blue;
+}
+.color-yellow
+{
+    background-color: yellow;
+}
+.color-black
+{
+    background-color: pink;
+}
+.color-orange
+{
+    background-color: orange;
+}
+.color-cyan
+{
+    background-color: cyan;
+}
+
+canvas 
+{
+  border: 2px solid #000000;
+  background-color: #000000;
+}
+
+</style>
+
+</head>
+<body>
+    
+   
+  <div class="container">
+    
+    <div class="toolbar">
+      <div class="color-picker color-red" onclick="setColor('#FF0000')"></div>
+      <div class="color-picker color-green" onclick="setColor('#00FF00')"></div>
+      <div class="color-picker color-blue" onclick="setColor('#0000FF')"></div>
+      <div class="color-picker color-yellow" onclick="setColor('#FFFF00')"></div>
+      <div class="color-picker color-white" onclick="setColor('white')"></div>
+      <div class="color-picker color-orange" onclick="setColor('orange')"></div>
+      <div class="color-picker color-cyan" onclick="setColor('cyan')"></div>
+      <div class="color-picker color-black" onclick="setEraser()">TẨY</div>
+    </div>
+    <canvas id="drawingBoard" width="1900" height="945"></canvas>
+  </div>
+
+  <script>
+let drawing = false;
+let currentColor = '#FFFFFF'; 
+let currentLineWidth = 3; 
+const canvas = document.getElementById('drawingBoard');
+const ctx = canvas.getContext('2d');
+
+
+function setColor(color) {
+  currentColor = color;
+  ctx.globalCompositeOperation = 'source-over'; 
+  currentLineWidth = 3; 
+}
+
+
+function setEraser() {
+  currentColor = '#FFFFFF'; 
+  ctx.globalCompositeOperation = 'destination-out'; 
+  currentLineWidth = 30; 
+}
+
+
+canvas.addEventListener('mousedown', function(e) {
+  drawing = true;
+  ctx.beginPath();
+  ctx.moveTo(e.offsetX, e.offsetY);
+});
+
+
+canvas.addEventListener('mousemove', function(e) {
+  if (drawing) {
+    ctx.strokeStyle = currentColor;
+    ctx.lineWidth = currentLineWidth; 
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+  }
+});
+
+
+canvas.addEventListener('mouseup', function() {
+  drawing = false;
+});
+
+
+canvas.addEventListener('mouseout', function() {
+  drawing = false;
+});
+  </script>
+</body>
+</html>
